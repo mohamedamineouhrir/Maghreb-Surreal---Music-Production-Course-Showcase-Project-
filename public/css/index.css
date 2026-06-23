@@ -1,0 +1,750 @@
+/* ==========================================================
+   MAGHREB SURREAL — Premium Clean Unified Architecture
+   Design Language: Pure Black, Apple Glassmorphism, Sharp Typography
+   ========================================================== */
+
+/* --- RESET & DESIGN VARIABLES --- */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-dark: #07060f;
+    --text-pure: #ffffff;
+    --text-ash: #8e8e93;
+    /* Apple standard crisp gray */
+    --logic-cyan: #00E5FF;
+    /* Floating instrument accents */
+    --logic-amber: #FF9F0A;
+    user-select: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-pure);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- SYSTEM TYPOGRAPHY --- */
+.inter-font {
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-weight: 900;
+}
+
+.sf-font {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
+}
+
+
+/* ==========================================================
+   GLASSMORPHIC CORNER NAVIGATION
+   ========================================================== */
+.corner-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 200;
+}
+
+.nav-item {
+    position: absolute;
+    padding: 30px;
+    pointer-events: auto;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.top-left {
+    top: 0;
+    left: 0;
+}
+
+.top-right {
+    top: 0;
+    right: 0;
+}
+
+.bottom-left {
+    bottom: 0;
+    left: 0;
+}
+
+.bottom-right {
+    bottom: 0;
+    right: 0;
+}
+
+.logo {
+    font-size: 16px;
+    letter-spacing: 4px;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Apple Premium Blur Pill Formulation */
+.glass-pill {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 12px 24px;
+    border-radius: 30px;
+    color: var(--text-ash);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.glass-pill:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-pure);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-enroll.glass-pill {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-pure);
+}
+
+.btn-enroll.glass-pill:hover {
+    background: var(--text-pure);
+    color: var(--bg-dark);
+}
+
+
+/* ==========================================================
+   CINEMATIC FULL-COLOR HERO BLEND
+   ========================================================== */
+.hero-canvas {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-image-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: var(--bg-dark);
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.55;
+    filter: contrast(115%) saturate(125%);
+}
+
+.hero-gradient-mask {
+    position: absolute;
+    inset: 0;
+    /* Soft atmospheric bleeding into pure deep black */
+    background: radial-gradient(circle at center, transparent 45%, var(--bg-dark) 85%),
+        linear-gradient(to bottom, rgba(3, 3, 3, 0.2) 50%, var(--bg-dark) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    padding: 0 24px;
+}
+
+.hero-title {
+    font-size: clamp(3.5rem, 9.5vw, 10.5rem);
+    line-height: 0.85;
+    letter-spacing: -4px;
+    text-transform: uppercase;
+    margin: 70px 0px;
+    color: var(--text-pure);
+    text-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--text-ash);
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.55;
+    font-weight: 400;
+}
+
+/* Clear Purpose Command Call-To-Action */
+.hero-cta {
+    margin-top: 48px;
+}
+
+.btn-hero {
+    display: inline-block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 16px 42px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: var(--text-pure);
+    letter-spacing: 0.5px;
+}
+
+.btn-hero:hover {
+    background: var(--text-pure);
+    color: var(--bg-dark);
+    box-shadow: 0 12px 35px rgba(255, 255, 255, 0.18);
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================================
+   PEDAGOGICAL CHRONOLOGICAL PHASES
+   ========================================================== */
+.phases-section {
+    padding: 140px 6vw 200px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.phase-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 100px;
+    padding: 140px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    align-items: center;
+}
+
+/* Massive Editorial Watermark Numbers */
+.phase-number {
+    position: absolute;
+    top: 50%;
+    left: -2vw;
+    transform: translateY(-50%);
+    font-size: clamp(12rem, 22vw, 20rem);
+    line-height: 0.75;
+    color: var(--text-pure);
+    opacity: 0.025;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.phase-text-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Technical Structure Labels */
+.phase-label {
+    display: inline-block;
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    color: var(--text-ash);
+    margin-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 6px;
+}
+
+.phase-title {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 600;
+    letter-spacing: -1px;
+    margin-bottom: 22px;
+    color: var(--text-pure);
+}
+
+.phase-desc {
+    font-size: 1.15rem;
+    color: var(--text-ash);
+    line-height: 1.65;
+    font-weight: 400;
+}
+
+
+/* ==========================================================
+   FLOATING HARDWARE CONTROLS (NO BACKGROUND CANVAS HOUSINGS)
+   ========================================================== */
+.visual-floating {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* 1. Minimal 3-Key Board Piece */
+.minimal-keys {
+    display: flex;
+    gap: 4px;
+    position: relative;
+    transform-origin: top center;
+}
+
+.white-key {
+    width: 34px;
+    height: 130px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 0 0 6px 6px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.black-key {
+    position: absolute;
+    width: 20px;
+    height: 76px;
+    background: #000000;
+    border-radius: 0 0 4px 4px;
+    border: 1px solid #1a1a1a;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.85);
+    z-index: 2;
+}
+
+.black-key:nth-child(2) {
+    left: 24px;
+}
+
+.black-key:nth-child(4) {
+    left: 62px;
+}
+
+/* 2. Isolated Heavy Architecture Knob */
+.big-knob {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #252525, #030303);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.9), inset 0 2px 4px rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.knob-indicator {
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    width: 4px;
+    height: 24px;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.cyan-glow {
+    background: var(--logic-cyan);
+    box-shadow: 0 0 14px var(--logic-cyan);
+}
+
+/* 3. Dual EQ Configurations with Hz Markers */
+.eq-knobs-container {
+    display: flex;
+    gap: 60px;
+}
+
+.eq-knob-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.small-knob {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #1c1c1c, #000000);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.85), inset 0 2px 4px rgba(255, 255, 255, 0.05);
+    position: relative;
+}
+
+.amber-glow {
+    background: var(--logic-amber);
+    box-shadow: 0 0 12px var(--logic-amber);
+}
+
+.hz-label {
+    font-size: 0.9rem;
+    color: var(--text-ash);
+    letter-spacing: 1.5px;
+    font-weight: 500;
+}
+
+
+/* ==========================================================
+   SCROLL-DRIVEN MOTION MATHEMATICS (PURE CSS KINETICS)
+   ========================================================== */
+
+@keyframes smoothReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(45px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scroll-reveal {
+    animation: smoothReveal linear both;
+    animation-timeline: view();
+    animation-range: entry 8% cover 28%;
+}
+
+@keyframes physicalPress {
+    0% {
+        transform: perspective(400px) rotateX(0deg);
+    }
+
+    100% {
+        transform: perspective(400px) rotateX(-12deg);
+    }
+}
+
+.scroll-press {
+    animation: physicalPress linear both;
+    animation-timeline: view();
+}
+
+@keyframes sweepStandard {
+    0% {
+        transform: rotate(-120deg);
+    }
+
+    100% {
+        transform: rotate(120deg);
+    }
+}
+
+.scroll-rotate {
+    animation: sweepStandard linear both;
+    animation-timeline: view();
+    animation-range: cover 5% cover 95%;
+}
+
+@keyframes sweepFast {
+    0% {
+        transform: rotate(-80deg);
+    }
+
+    100% {
+        transform: rotate(140deg);
+    }
+}
+
+.scroll-rotate-fast {
+    animation: sweepFast linear both;
+    animation-timeline: view();
+}
+
+@keyframes sweepCounter {
+    0% {
+        transform: rotate(50deg);
+    }
+
+    100% {
+        transform: rotate(-55deg);
+    }
+}
+
+.scroll-rotate-slow {
+    animation: sweepCounter linear both;
+    animation-timeline: view();
+}
+
+
+/* ==========================================================
+   RESPONSIVE LAYOUT BREAKPOINTS
+   ========================================================== */
+
+@media (max-width: 980px) {
+    .phases-section {
+        padding: 80px 40px;
+    }
+
+    .phase-item {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        padding: 90px 0;
+    }
+
+    .phase-number {
+        font-size: 14rem;
+        top: 20%;
+    }
+
+    .visual-floating {
+        justify-content: flex-start;
+        padding-left: 10px;
+        height: 160px;
+    }
+}
+
+@media (max-width: 640px) {
+
+    /* Safe hide on corner elements to maintain layout sanitation on small display engines */
+    .bottom-left,
+    .bottom-right {
+        display: none;
+    }
+
+    .nav-item {
+        padding: 20px;
+    }
+
+    .logo {
+        font-size: 14px;
+    }
+
+    .phases-section {
+        padding: 60px 24px;
+    }
+
+    .phase-number {
+        display: none;
+    }
+
+    /* Complete sanitization for mobile noise Reduction */
+}
+/* ==========================================================
+   INDEX-SPECIFIC ADDITIONS
+   Base styles remain in index.css (unchanged).
+   This file adds the topbar, image breaks, new sections.
+   ========================================================== */
+
+/* Offset body so topbar doesn't cover hero start */
+body { padding-top: 0; }
+.hero-canvas { /* already full viewport, topbar overlays fine */ }
+
+/* ---- IDENTITY SECTION ---- */
+.identity-section {
+    padding: 140px 7vw 120px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.identity-inner { max-width: 1300px; margin: 0 auto; }
+.identity-eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--text-ash);
+    display: block;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+.identity-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+}
+.identity-headline {
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    line-height: 1.0;
+    letter-spacing: -1.5px;
+}
+.identity-col-right {
+    font-size: 1.1rem;
+    color: #c0c0c5;
+    line-height: 1.75;
+    font-weight: 300;
+}
+.identity-col-right p { margin-bottom: 22px; }
+.identity-col-right p:last-of-type { margin-bottom: 24px; }
+.identity-link {
+    font-size: 0.95rem;
+    color: var(--text-ash);
+    letter-spacing: 0.3px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+}
+.identity-link:hover { color: var(--text-pure); border-color: rgba(255,255,255,0.3); }
+
+/* ---- IMAGE BREAKS ---- */
+.img-break {
+    position: relative;
+    width: 100%;
+    height: 52vh;
+    min-height: 300px;
+    overflow: hidden;
+}
+.img-break--tall { height: 75vh; min-height: 460px; }
+.img-break-photo {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: brightness(0.42) contrast(108%) saturate(75%);
+    transition: transform 10s ease;
+    will-change: transform;
+}
+.img-break:hover .img-break-photo { transform: scale(1.025); }
+
+.img-break-overlay {
+    position: absolute;
+    bottom: 40px; left: 7vw; right: 7vw;
+    pointer-events: none;
+}
+.img-break-overlay--center {
+    bottom: auto; left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 78%;
+    max-width: 780px;
+}
+.img-break-caption {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+}
+.img-break-headline {
+    font-size: clamp(2rem, 5vw, 4.5rem);
+    line-height: 0.9;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 40px rgba(0,0,0,0.7);
+}
+.img-break-sub {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.58);
+    line-height: 1.65;
+    font-weight: 300;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+/* ---- PHASE MORE LINK ---- */
+.phase-more {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 0.92rem;
+    color: var(--text-ash);
+    letter-spacing: 0.3px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+}
+.phase-more:hover { color: var(--text-pure); border-color: rgba(255,255,255,0.3); }
+
+/* ---- STATS ROW ---- */
+.stats-section {
+    padding: 80px 7vw;
+    border-top: 1px solid rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.stats-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+.stat-number {
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: 1;
+    letter-spacing: -3px;
+}
+.stat-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--text-ash);
+    max-width: 160px;
+    line-height: 1.5;
+}
+.stat-divider {
+    width: 1px;
+    height: 70px;
+    background: rgba(255,255,255,0.06);
+    flex-shrink: 0;
+}
+
+/* ---- INDEX BOTTOM CTA ---- */
+.index-cta {
+    padding: 140px 7vw 160px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.04);
+}
+.index-cta-inner { max-width: 660px; margin: 0 auto; }
+.index-cta-title {
+    font-size: clamp(2.5rem, 5.5vw, 5rem);
+    line-height: 0.9;
+    letter-spacing: -3px;
+    margin-bottom: 14px;
+}
+.index-cta-sub {
+    font-size: 1.1rem;
+    color: var(--text-ash);
+    margin-bottom: 44px;
+    line-height: 1.5;
+    font-weight: 300;
+}
+.index-cta-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+.btn-outline {
+    font-size: 15px;
+    font-weight: 500;
+    padding: 14px 32px;
+    display: inline-block;
+}
+.btn-fill {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 32px;
+    background: #fff;
+    color: var(--bg-dark);
+    border-radius: 30px;
+    transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+    letter-spacing: 0.3px;
+}
+.btn-fill:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 28px rgba(255,255,255,0.14);
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 900px) {
+    .identity-grid { grid-template-columns: 1fr; gap: 36px; }
+    .stat-divider { display: none; }
+    .stats-inner { gap: 40px; }
+}
+@media (max-width: 640px) {
+    .identity-section { padding: 90px 24px 80px; }
+    .index-cta { padding: 90px 24px 120px; }
+    .index-cta-btns { flex-direction: column; align-items: stretch; }
+    .btn-outline, .btn-fill { text-align: center; }
+}
