@@ -33,7 +33,7 @@ a { text-decoration: none; color: inherit; }
    ============================================================ */
 .corner-nav {
     position: fixed; top: 0; left: 0;
-    width: 100vw; height: 100vh;
+    width: 100%; height: 100vh;
     pointer-events: none; z-index: 200;
 }
 .nav-item {
@@ -146,17 +146,18 @@ a { text-decoration: none; color: inherit; }
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
-    gap: 40px;
+    gap: clamp(20px, 4vw, 40px);
     position: relative;
 }
 
 .phase-bg-number {
     position: absolute;
-    top: 50%; left: -2vw;
+    top: 50%; left: 0;
     transform: translateY(-50%);
-    font-size: clamp(10rem, 18vw, 16rem);
+    font-size: clamp(6rem, 14vw, 16rem);
     line-height: 0.8; color: var(--text-pure);
     opacity: 0.025; pointer-events: none; z-index: 0;
+    overflow: hidden; max-width: 100%;
 }
 
 .phase-block-title {
@@ -392,20 +393,30 @@ a { text-decoration: none; color: inherit; }
     .modules-grid { grid-template-columns: repeat(2, 1fr); }
     .module-card--wide { grid-column: span 2; }
     .tools-grid { grid-template-columns: repeat(2, 1fr); }
+    .phase-block { padding: 0 24px 80px; }
 }
 
 @media (max-width: 768px) {
-    .page-header { padding: 130px 24px 60px; }
-    .phase-block { padding: 0 24px 80px; }
+    .page-header { padding: 130px 20px 60px; }
+    .phase-block { padding: 0 20px 60px; }
     .modules-grid { grid-template-columns: 1fr; }
     .module-card--wide { grid-column: span 1; }
     .tools-grid { grid-template-columns: 1fr 1fr; }
     .phase-block-title-row { grid-template-columns: 1fr; }
     .phase-visual-right { display: none; }
-    .header-meta { gap: 24px; }
+    .header-meta { gap: 20px; flex-wrap: wrap; }
     .meta-number { font-size: 2rem; }
+    .meta-divider { display: none; }
     .bottom-left, .bottom-right { display: none; }
     .nav-item { padding: 20px; }
+    .page-title { letter-spacing: -2px; }
+    .phase-block-title { letter-spacing: -1px; }
+}
+
+@media (max-width: 480px) {
+    .tools-grid { grid-template-columns: 1fr; }
+    .module-card { padding: 28px 22px; }
+    .cta-title { letter-spacing: -2px; }
 }
 
 /* services additions: topbar offset, image break */

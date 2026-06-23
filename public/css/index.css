@@ -58,7 +58,7 @@ a {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     pointer-events: none;
     z-index: 200;
@@ -134,7 +134,7 @@ a {
    ========================================================== */
 .hero-canvas {
     position: relative;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -227,7 +227,7 @@ a {
     position: relative;
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
-    gap: 100px;
+    gap: clamp(40px, 6vw, 100px);
     padding: 140px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.04);
     align-items: center;
@@ -237,14 +237,16 @@ a {
 .phase-number {
     position: absolute;
     top: 50%;
-    left: -2vw;
+    left: 0;
     transform: translateY(-50%);
-    font-size: clamp(12rem, 22vw, 20rem);
+    font-size: clamp(8rem, 18vw, 20rem);
     line-height: 0.75;
     color: var(--text-pure);
     opacity: 0.025;
     z-index: 0;
     pointer-events: none;
+    overflow: hidden;
+    max-width: 100%;
 }
 
 .phase-text-content {
@@ -480,18 +482,19 @@ a {
 
 @media (max-width: 980px) {
     .phases-section {
-        padding: 80px 40px;
+        padding: 80px 24px;
     }
 
     .phase-item {
         grid-template-columns: 1fr;
-        gap: 60px;
-        padding: 90px 0;
+        gap: 40px;
+        padding: 80px 0;
     }
 
     .phase-number {
-        font-size: 14rem;
-        top: 20%;
+        font-size: 10rem;
+        top: 10%;
+        left: 0;
     }
 
     .visual-floating {
@@ -502,8 +505,6 @@ a {
 }
 
 @media (max-width: 640px) {
-
-    /* Safe hide on corner elements to maintain layout sanitation on small display engines */
     .bottom-left,
     .bottom-right {
         display: none;
@@ -518,14 +519,20 @@ a {
     }
 
     .phases-section {
-        padding: 60px 24px;
+        padding: 60px 20px;
+    }
+
+    .phase-item {
+        padding: 60px 0;
     }
 
     .phase-number {
         display: none;
     }
 
-    /* Complete sanitization for mobile noise Reduction */
+    .hero-title {
+        letter-spacing: -2px;
+    }
 }
 /* ==========================================================
    INDEX-SPECIFIC ADDITIONS
@@ -738,13 +745,18 @@ body { padding-top: 0; }
 
 /* ---- RESPONSIVE ---- */
 @media (max-width: 900px) {
+    .identity-section { padding: 100px 24px 80px; }
     .identity-grid { grid-template-columns: 1fr; gap: 36px; }
     .stat-divider { display: none; }
     .stats-inner { gap: 40px; }
+    .img-break-overlay--center { width: 90%; }
 }
 @media (max-width: 640px) {
-    .identity-section { padding: 90px 24px 80px; }
-    .index-cta { padding: 90px 24px 120px; }
+    .identity-section { padding: 80px 20px 60px; }
+    .index-cta { padding: 80px 20px 100px; }
     .index-cta-btns { flex-direction: column; align-items: stretch; }
     .btn-outline, .btn-fill { text-align: center; }
+    .stats-section { padding: 60px 20px; }
+    .img-break-headline { letter-spacing: -1px; }
+    .img-break-sub { font-size: 0.95rem; }
 }

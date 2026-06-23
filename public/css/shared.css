@@ -13,6 +13,7 @@
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     border-bottom: 1px solid rgba(255,255,255,0.045);
+    overflow: hidden;
 }
 .topbar-inner {
     display: flex;
@@ -199,6 +200,8 @@
 @media (max-width: 900px) {
     .contact-inner { grid-template-columns: 1fr; gap: 48px; }
     .contact-sub { max-width: 100%; }
+    .contact-footer { padding: 80px 5vw 0; }
+    .contact-title { letter-spacing: -1.5px; }
 }
 @media (max-width: 640px) {
     .form-row { grid-template-columns: 1fr; }
@@ -206,4 +209,7 @@
     .topbar-inner { padding: 0 20px; }
     .topbar-logo { font-size: 12px; letter-spacing: 2.5px; }
     .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    .contact-footer { padding: 60px 20px 0; }
+    .contact-title { font-size: clamp(1.8rem, 6vw, 3.5rem); }
+    .contact-inner { padding-bottom: 60px; }
 }

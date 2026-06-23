@@ -31,7 +31,7 @@ a { text-decoration: none; color: inherit; }
 /* ============================================================
    NAVIGATION — identical to index
    ============================================================ */
-.corner-nav { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 200; }
+.corner-nav { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; pointer-events: none; z-index: 200; }
 .nav-item { position: absolute; padding: 30px; pointer-events: auto; text-transform: uppercase; font-size: 11px; letter-spacing: 2px; font-weight: 600; }
 .top-left { top: 0; left: 0; } .top-right { top: 0; right: 0; } .bottom-left { bottom: 0; left: 0; } .bottom-right { bottom: 0; right: 0; }
 .logo { font-size: 16px; letter-spacing: 4px; text-shadow: 0 0 20px rgba(0,0,0,0.5); }
@@ -135,7 +135,7 @@ a { text-decoration: none; color: inherit; }
 
 .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
     gap: 32px; margin-bottom: 32px;
 }
 .pricing-card {
@@ -189,14 +189,20 @@ a { text-decoration: none; color: inherit; }
 @media (max-width: 900px) {
     .pillars-grid { grid-template-columns: 1fr; }
     .pricing-grid { grid-template-columns: 1fr; }
-    .manifesto-header { padding: 130px 24px 60px; }
+    .manifesto-header { padding: 160px 24px 60px; }
     .pillars-section { padding: 0 24px 80px; }
     .pricing-section { padding: 0 24px 120px; }
+    .partner-strip { padding: 50px 20px; }
 }
 @media (max-width: 640px) {
     .bottom-left, .bottom-right { display: none; }
     .nav-item { padding: 20px; }
-    .pricing-card { padding: 44px 28px; }
+    .pricing-card { padding: 44px 24px; }
+    .manifesto-header { padding: 140px 20px 50px; }
+    .manifesto-title { letter-spacing: -2px; }
+    .pillars-section { padding: 0 20px 60px; }
+    .pricing-section { padding: 0 20px 80px; }
+    .pillar-card { padding: 32px 24px; }
 }
 
 /* about-us additions: image break + topbar offset */
